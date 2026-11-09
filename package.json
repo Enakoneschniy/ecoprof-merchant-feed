@@ -1,0 +1,13 @@
+{
+  "name": "ecoprof-merchant-feed",
+  "private": true,
+  "description": "Daily Google Merchant Center XML feed for ecosmeticprof.com",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "update": "./update.sh --out site/google_merchant_ua.xml --report-dir out"
+  },
+  "dependencies": {
+    "entities": "7.0.1",
+    "jsdom": "28.1.0"
+  }
+}

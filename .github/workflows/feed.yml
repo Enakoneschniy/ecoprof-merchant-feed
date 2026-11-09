@@ -1,0 +1,79 @@
+name: Merchant feed
+
+on:
+  schedule:
+    # Every day at 03:17 UTC = 05:17 Kyiv in winter, 06:17 in summer.
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit the last good feed
+  pages: write
+  id-token: write
+  issues: write # "needs review" issue for new products and photos
+  actions: write # keep the schedule from being auto-disabled
+
+concurrency:
+  group: merchant-feed
+  cancel-in-progress: false
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # site/google_merchant_ua.xml in the repo is the last good feed. build.cjs compares the SKU count
+      # against it and leaves it untouched on any problem: the job then fails, nothing is deployed,
+      # Google keeps fetching the previous version, and GitHub emails the repository owner.
+      - name: Build the feed from the live site
+        run: ./update.sh --out site/google_merchant_ua.xml --report-dir out
+
+      - name: Commit the feed when it changed
+        run: |
+          if ! git diff --quiet -- site/google_merchant_ua.xml; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add site/google_merchant_ua.xml
+            git commit -m "feed: $(date -u +%F), $(grep -c '<item>' site/google_merchant_ua.xml) items"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v5
+
+      - name: Open or update the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node review-issue.cjs out/google_merchant_ua.report.json > review.md
+          if [ -s review.md ]; then
+            gh label create feed-review --color FBCA04 --description 'Фід: потрібна перевірка' --force
+            num=$(gh issue list --label feed-review --state open --json number --jq '.[0].number // empty')
+            if [ -n "$num" ]; then
+              gh issue edit "$num" --body-file review.md
+            else
+              gh issue create --title 'Фід: нові товари або фото на перевірку' --label feed-review --body-file review.md
+            fi
+          fi
+
+      # GitHub disables scheduled workflows in public repos after 60 days without activity.
+      - name: Keep the schedule alive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/feed.yml/enable"
