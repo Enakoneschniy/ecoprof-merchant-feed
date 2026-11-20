@@ -162,11 +162,11 @@
   </item>
   <item>
    <g:id>8340</g:id>
-   <g:title>Освітлюючий комплекс для обличчя Brightening (сироватка та крем), Eco.prof.cosmetics</g:title>
+   <g:title>Освітлюючий комплекс для обличчя Brightening (сироватка та крем), 80 мл, Eco.prof.cosmetics</g:title>
    <g:description><![CDATA[Освітлюючий комплекс brightening (сироватка та крем). Комплекс складається з 2 продуктів: Brightening Acid Serum — освітлююча кислотна сироватка. Сироватка має відлущувальний ефект та ефективно вирівнює тон шкіри. Може застосовуватися на шкірі з пігментацією та постакне. Сироватка містить комплекс азелаїнової та транексамової кислот, які підходять навіть для найчутливішої шкіри. Вони разом забезпечують помітне покращення стану шкіри. Також у складі є молочна кислота, що сприяє зволоженню та оновленню шкіри. Brightening Active Cream — освітлюючий активний крем для обличчя. Знижує прояви чутливості шкіри, викликані порушенням зі сторони нейрону. Комплексне застосування з сироваткою сприяє візуальному освітленню, сяянню шкіри та вирівнюванню її тону. Перші результати будуть помітні вже через 3–5 днів, а стійкий ефект — після курсу використання протягом 28–56 днів. Крем має середню текстуру, добре зволожує, не залишає жирного блиску та неприємних відчуттів на шкірі. Комплекс рекомендовано використовувати у системах догляду за шкірою з пігментацією, постакне, віковими змінами чи сухістю.]]></g:description>
    <g:link>https://ecosmeticprof.com/osvitlyuyuchii-kompleks-brightening-sirovatka-ta-krem</g:link>
    <g:image_link>https://ecosmeticprof.com/image/cache/catalog/white%20background%2007.10/IMG_4036-960x960.JPG</g:image_link>
-   <g:availability>out_of_stock</g:availability>
+   <g:availability>in_stock</g:availability>
    <g:price>1880.00 UAH</g:price>
    <g:sale_price>1750.00 UAH</g:sale_price>
    <g:brand>Eco.prof.cosmetics</g:brand>
@@ -174,6 +174,7 @@
    <g:condition>new</g:condition>
    <g:google_product_category>6069</g:google_product_category>
    <g:product_type>Набори</g:product_type>
+   <g:unit_pricing_measure>80 ml</g:unit_pricing_measure>
    <g:product_detail>
     <g:section_name>Опис ознак</g:section_name>
     <g:attribute_name>Вік</g:attribute_name>
@@ -1666,18 +1667,17 @@
   </item>
   <item>
    <g:id>8383</g:id>
-   <g:title>Маска для обличчя Hydro Mask, 50 мл, AV&amp;eco.prof.cosmetics</g:title>
+   <g:title>Маска для обличчя Hydro Mask, AV&amp;eco.prof.cosmetics</g:title>
    <g:description><![CDATA[Кремова зволожуюча маска для обличчя з аквапоринами, унікальним інгредієнтом PatcH2O, гіалуроновою кислотою. Вона ідеально підходить для використання в періоди міжсезоння, коли шкіра піддається впливу змін клімату, а також для зменшення ознак сухості шкіри, лущення і роздратування. Основні характеристики: інтенсивне зволоження: маска забезпечує глибоке зволоження завдяки унікальному складу з аквапоринами та спеціальними зволожуючими компонентами; розроблена з дерматологом; підходить для всіх типів та станів шкіри. Ідеальна для подарунку. Маска має ніжну, кремову текстуру, легко розподіляється по шкірі та швидко вбирається. Має легкий, приємний аромат. Після використання шкіра відчувається зволоженою, гладкою, пружною та комфортною, без стягнутості або сухості. Рекомендується попередньо проводити патч-тест для виключення індивідуальної реакції або непереносимості!]]></g:description>
    <g:link>https://ecosmeticprof.com/maska-hydro-mask-0041-ua</g:link>
    <g:image_link>https://ecosmeticprof.com/image/cache/catalog/2026/IMG_2750-960x960.JPG</g:image_link>
-   <g:availability>in_stock</g:availability>
+   <g:availability>out_of_stock</g:availability>
    <g:price>970.00 UAH</g:price>
    <g:brand>AV&amp;eco.prof.cosmetics</g:brand>
    <g:identifier_exists>no</g:identifier_exists>
    <g:condition>new</g:condition>
    <g:google_product_category>6262</g:google_product_category>
    <g:product_type>Обличчя &gt; Маски</g:product_type>
-   <g:unit_pricing_measure>50 ml</g:unit_pricing_measure>
    <g:product_detail>
     <g:section_name>Опис ознак</g:section_name>
     <g:attribute_name>Вік</g:attribute_name>
